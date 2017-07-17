@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import ChatSideBar from '../components/chatSideBar'
 import ChatPannel from '../components/chatPannel'
-import store from '../global/globalStore'
 class ChatComponent extends Component {
   constructor (props) {
     super (props)
