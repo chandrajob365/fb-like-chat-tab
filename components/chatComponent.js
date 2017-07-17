@@ -12,31 +12,34 @@ class ChatComponent extends Component {
     }
   }
   static async getInitialProps (props) {
-      return {}
+    let userDataFromLS = JSON.parse(localStorage.getItem(obj.key))
+      return {userDataFromLS}
   }
+  componentDidMount () {
+    console.log('<chatComponent>componentDidMount ********* window ******** ', window);
+    const userData = window.userData
+    this.setState({
+       user: Object.assign(this.state.user, userData)
+    })
+  }
+componentWillUnmount() {
+  console.log('----- <chatComponent>componentWillUnmount ------- ');
 
-// {"user":{
-//   "user-id1500311842111":{"name":"user1"},
-//   "user-id1500312062218":{"name":"user1"},
-//   "user-id1500312085303":{"name":"user1"}
-//   }
-// }
+}
   renderChatPanel (obj) {
+    console.log('renderChatPanel ********* window ******** ', window);
     console.log('<chatComponent.js renderChatPanel> obj.key = ', obj.key , '  obj.user = ', obj.user, '  obj.user.userName = ', obj.user.userName)
     console.log('<chatComponent.js renderChatPanel> this.state.users = ', this.state.user)
 
-    localStorage.setItem(obj.key ,JSON.stringify({
+    window.userData = {
        [obj.key]: {name: obj.user.userName}
-     }))
-    // const userData = {
-    //    [obj.key]: {name: obj.user.userName}
-    //  }
-     console.log('********** <chatComponent.js renderChatPanel> *******  userData = ', JSON.parse(localStorage.getItem(obj.key)))
+     }
+     console.log('********** <chatComponent.js renderChatPanel> *******  userData = ', window.userData)
     this.setState({
-       user: Object.assign(this.state.user, JSON.parse(localStorage.getItem(obj.key)))
+       user: Object.assign(this.state.user, window.userData)
     })
-    console.log('********** <chatComponent.js renderChatPanel> *******  this.state = ', JSON.stringify(this.state))
-     console.log('<chatComponent.js renderChatPanel> this.state.user = ', JSON.stringify(this.state.user))
+     console.log('********** <chatComponent.js renderChatPanel> *******  this.state = ', this.state)
+      console.log('<chatComponent.js renderChatPanel> this.state.user = ', this.state.user)
      console.log('<chatComponent.js renderChatPanel> {Object.keys(this.state.user) = ', Object.keys(this.state.user))
 
   }
@@ -44,7 +47,6 @@ class ChatComponent extends Component {
   renderPanel (key) {
     console.log('<chatComponent.js renderPanel > key = ', key, ' user = ', this.state.user[key])
     return (
-
           <ChatPannel  key={key} index={key} details= {{key: key, user: this.state.user[key] }} />
       )
   }
