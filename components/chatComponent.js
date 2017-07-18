@@ -43,17 +43,16 @@ class ChatComponent extends Component {
     return (
       <div className='sideBar'>
         <ChatSideBar func_renderChatPanel={this.renderChatPanel} />
-        <div className='pannelMain'>
+        <div className='pannel'>
         {Object.keys(this.state.user).map(this.renderPanel)}
         </div>
         <style jsx>{`
-          .pannelMain {
-            display:flex;
-
-          }
           .sideBar {
             display: flex;
             flex-direction: row-reverse;
+          }
+          .pannel{
+            display:flex;
           }
         `}</style>
       </div>

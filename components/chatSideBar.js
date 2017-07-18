@@ -23,12 +23,9 @@ class ChatSideBar extends Component {
         <p> ChatSideBar </p>
         <style jsx>{`
           .sideBar {
-            width: 200px;
-            height: 750px;
-            right: 0px;
-            top: 0px;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            width: 20vw;
+            height: 90vh;
+            padding: 2vh;
             border: 1px solid rgba(29, 49, 91, .3);
           },
           .

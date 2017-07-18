@@ -8,13 +8,13 @@ class ChatPannel extends Component {
         <style jsx>{`
           .pannel {
             align-items: flex-end;
-            padding: 5px;
+            padding: 2vh;
             margin-top: auto;
-            margin-left: 10px;
-            margin-right: 10px;
-            height: 285px;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            height: 40vh;
             background-color: rgb(237, 239, 244);
-            width: 300px;
+            width: 20vw;
             border: '1px solid rgba(29, 49, 91, .3);
           }
         `}</style>
