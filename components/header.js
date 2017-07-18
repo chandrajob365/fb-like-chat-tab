@@ -5,6 +5,9 @@ class Header extends Component {
   render () {
     return (
       <div>
+        <Link href='/' prefetch>
+          <a> Home </a>
+        </Link>
         <Link href='/about' prefetch>
           <a> About </a>
         </Link>
