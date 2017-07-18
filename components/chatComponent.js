@@ -5,8 +5,8 @@ import Store from '../globalStore/store'
 class ChatComponent extends Component {
   constructor (props) {
     super(props)
+    this.updateState = this.updateState.bind(this)
     this.renderChatPanel = this.renderChatPanel.bind(this)
-    this.renderPanel = this.renderPanel.bind(this)
     this.state = {
       user: {}
     }
@@ -16,7 +16,8 @@ class ChatComponent extends Component {
       user: Object.assign(this.state.user, Store.userData)
     })
   }
-  renderChatPanel (obj) {
+  // Updates global Store variable and state of Chatcomponent
+  updateState (obj) {
     if (this.componentAlreadyRendered(obj.userName) === 0) {
       if (Store.userData)
         Store.userData = Object.assign(Store.userData, {[obj.key]: obj.userName})
@@ -27,14 +28,15 @@ class ChatComponent extends Component {
       })
     }
   }
+  // Checks if chat tab for this user is already open
   componentAlreadyRendered (userName) {
     return Object
               .values(this.state.user)
               .filter(user => user === userName)
               .length
   }
-
-  renderPanel (key) {
+  // Renders ChatPannel when change in state is observed
+  renderChatPanel (key) {
     return (
       <ChatPannel key={key} index={key} details={{ key: key, userName: this.state.user[key] }} />
     )
@@ -42,9 +44,9 @@ class ChatComponent extends Component {
   render () {
     return (
       <div className='sideBar'>
-        <ChatSideBar func_renderChatPanel={this.renderChatPanel} />
+        <ChatSideBar func_updateState={this.updateState} />
         <div className='pannel'>
-        {Object.keys(this.state.user).map(this.renderPanel)}
+          {Object.keys(this.state.user).map(this.renderChatPanel)}
         </div>
         <style jsx>{`
           .sideBar {
