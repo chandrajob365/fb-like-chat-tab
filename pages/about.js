@@ -6,7 +6,6 @@ class About extends Component {
     return (
       <div>
         <Layout />
-        <p> In About Page </p>
       </div>
     )
   }

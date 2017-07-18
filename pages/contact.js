@@ -6,7 +6,6 @@ class Contact extends Component {
     return (
       <div>
         <Layout />
-        <p> In Contact Page </p>
       </div>
     )
   }
