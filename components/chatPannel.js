@@ -1,22 +1,17 @@
 import {Component} from 'react'
 
 class ChatPannel extends Component {
-  constructor (props) {
-    super(props)
-  }
   render () {
-    console.log('<chatPannel.js render >this.props.details = ', this.props.details)
-    console.log('<chatPannel.js render >this.props.details.user.name = ', this.props.details.user.name)
     return (
       <div className='pannel'>
-        <p> Name - {this.props.details.user.name}</p>
+        <p> Name - {this.props.details.userName}</p>
         <style jsx>{`
           .pannel {
-            display: block;
-            position: fixed;
+            align-items: flex-end;
             padding: 5px;
-            bottom: 0px;
-            right: 220px;
+            margin-top: auto;
+            margin-left: 10px;
+            margin-right: 10px;
             height: 285px;
             background-color: rgb(237, 239, 244);
             width: 300px;
