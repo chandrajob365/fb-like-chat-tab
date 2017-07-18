@@ -1,10 +1,9 @@
 import {Component} from 'react'
-import ChatPannel from '../components/chatPannel'
 
 class ChatSideBar extends Component {
 
   constructor (props) {
-    super (props)
+    super(props)
     this.state = {
       users: {}
     }
@@ -12,19 +11,19 @@ class ChatSideBar extends Component {
   }
   addUser (event) {
     console.log('event.target.value = ', event.target.value)
-      let userData = {
-        userName: event.target.value
-      }
-    console.log('<chatSideBar.js addUser > userData = ',userData)
+    let userData = {
+      userName: event.target.value
+    }
+    console.log('<chatSideBar.js addUser > userData = ', userData)
     var timeStamp = (new Date()).getTime()
     const user = {
-      [`user-id${timeStamp}`] : userData
+      [`user-id${timeStamp}`]: userData
     }
-    console.log('<chatSideBar.js addUser > user = ',JSON.stringify(user))
+    console.log('<chatSideBar.js addUser > user = ', JSON.stringify(user))
     this.setState({ users: Object.assign(this.state.users, user) })
-    console.log('<chatSideBar.js addUser > this.state.users = ',JSON.stringify(this.state.users))
-   console.log('<chatSideBar.js addUser > Object.keys(user) = ', Object.keys(user)[0])
-   this.props.func_renderChatPanel({key:Object.keys(user)[0], user: this.state.users[Object.keys(user)[0]]})
+    console.log('<chatSideBar.js addUser > this.state.users = ', JSON.stringify(this.state.users))
+    console.log('<chatSideBar.js addUser > Object.keys(user) = ', Object.keys(user)[0])
+    this.props.func_renderChatPanel({ key: Object.keys(user)[0], user: this.state.users[Object.keys(user)[0]] })
   }
 
   render () {
@@ -44,7 +43,7 @@ class ChatSideBar extends Component {
           },
           .
         `}</style>
-        <input type='button' onClick={this.addUser}  value='user1' />
+        <input type='button' onClick={this.addUser} value='user1' />
       </div>
     )
   }

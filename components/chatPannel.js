@@ -2,14 +2,14 @@ import {Component} from 'react'
 
 class ChatPannel extends Component {
   constructor (props) {
-    super (props)
+    super(props)
   }
   render () {
     console.log('<chatPannel.js render >this.props.details = ', this.props.details)
     console.log('<chatPannel.js render >this.props.details.user.name = ', this.props.details.user.name)
     return (
-      <div className = 'pannel'>
-        <p> Name -  {this.props.details.user.name}</p>
+      <div className='pannel'>
+        <p> Name - {this.props.details.user.name}</p>
         <style jsx>{`
           .pannel {
             display: block;

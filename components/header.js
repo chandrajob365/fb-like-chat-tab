@@ -2,13 +2,6 @@ import {Component} from 'react'
 import Link from 'next/link'
 
 class Header extends Component {
-
-  constructor (props) {
-    super (props)
-  }
-  static async getInitialProps (props) {
-      return {}
-  }
   render () {
     return (
       <div>
